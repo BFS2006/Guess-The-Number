@@ -22,18 +22,32 @@ function compareNumbers() {
 
     if(attempts < maxGuesses) {
 
-        if(userNumber > computerNumber) {
+        if(computerNumber > userNumber && userNumber - computerNumber <= -1 && userNumber - computerNumber >= -5) {
+            console.log('está perto sdasa')
+            document.getElementById('textOutput').innerHTML = 'Está perto falta pouco para chegar'
+            document.getElementById('inputBox').value = ''
+            attempts++
+            document.getElementById('attempts').innerHTML = attempts
+        }
+        else if(userNumber - computerNumber <= 5 && userNumber - computerNumber >= 1) {
+            console.log('esta perto')
+            document.getElementById('textOutput').innerHTML = 'esta perto passou um pouco'
+            document.getElementById('inputBox').value = ''
+            attempts++
+            document.getElementById('attempts').innerHTML = attempts
+        }
+        else if(userNumber - computerNumber >= 6) {
             document.getElementById('textOutput').innerHTML = 'Your Number is too High'
             document.getElementById('inputBox').value = ''
             attempts++
             document.getElementById('attempts').innerHTML = attempts
         }
-        else if(userNumber < computerNumber) {
+        else if(userNumber - computerNumber <= -1) {
             document.getElementById('textOutput').innerHTML = 'Your Number is too Low'
             document.getElementById('inputBox').value = ''
             attempts++
             document.getElementById('attempts').innerHTML = attempts
-        }
+        }                    
         else {
         
             document.getElementById('textOutput').innerHTML = 'Congratulations ! You Guessed the Right Number'
